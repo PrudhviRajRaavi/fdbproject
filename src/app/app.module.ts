@@ -19,6 +19,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
+import { ManagerPageComponent } from './manager-page/manager-page.component';
+import { ManagerDashboardComponent } from './manager-page/pages/manager-dashboard/manager-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     CandidatePageComponent,
     AppliedJobsComponent,
     ProfileComponent,
-    CandidateDashboardComponent
+    CandidateDashboardComponent,
+    ManagerPageComponent,
+    ManagerDashboardComponent
   ],
   imports: [
     BrowserModule,

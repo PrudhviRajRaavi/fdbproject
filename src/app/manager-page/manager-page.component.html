@@ -20,16 +20,12 @@
       <mat-divider></mat-divider>
   
       <button mat-button class="menu-button" (click)="changeRoute('home')">
-        <mat-icon>person</mat-icon>
-        <span>Profile</span>
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
       </button>
       <button mat-button class="menu-button" (click)="changeRoute('profile')">
-        <mat-icon>work</mat-icon>
-        <span>Available Jobs</span>
-      </button>
-      <button mat-button class="menu-button" (click)="changeRoute('about')">
-        <mat-icon>work_history</mat-icon>
-        <span>Applied Jobs</span>
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
       </button>
   
       <mat-divider></mat-divider>
@@ -41,8 +37,8 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <div class="content mat-elevation-z8">
-        <app-applied-jobs *ngIf="profile"></app-applied-jobs>
-        <app-candidate-dashboard *ngIf="home"></app-candidate-dashboard>
+        <app-profile *ngIf="profile"></app-profile>
+        <app-manager-dashboard *ngIf="home"></app-manager-dashboard>
       </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
