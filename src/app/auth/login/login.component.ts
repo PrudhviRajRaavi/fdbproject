@@ -20,10 +20,8 @@ export class LoginComponent implements OnInit {
        'password': new FormControl(null)
      })
    }
-   onSubmit( formData: FormGroup, loginDirective: FormGroupDirective){
-     const email = formData.value.email;
-     const password = formData.value.password;
-//  this.authService.signinUser(email, password);
+   onSubmit( ){
+     
    }
  
  }

@@ -21,6 +21,11 @@ import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
 import { ManagerPageComponent } from './manager-page/manager-page.component';
 import { ManagerDashboardComponent } from './manager-page/pages/manager-dashboard/manager-dashboard.component';
+import { AvailableJobsComponent } from './candidate-page/pages/available-jobs/available-jobs.component';
+import { ApplyJobFormComponent } from './candidate-page/pages/available-jobs/apply-job-form/apply-job-form.component';
+import { LogoutComponent } from './auth/logout/logout.component';
+import { AuthGuardServiceService } from './auth-guard-service.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +37,13 @@ import { ManagerDashboardComponent } from './manager-page/pages/manager-dashboar
     ProfileComponent,
     CandidateDashboardComponent,
     ManagerPageComponent,
-    ManagerDashboardComponent
+    ManagerDashboardComponent,
+    AvailableJobsComponent,
+    ApplyJobFormComponent,
+    LogoutComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -48,7 +57,7 @@ import { ManagerDashboardComponent } from './manager-page/pages/manager-dashboar
     MatButtonModule,
     LayoutModule
   ],
-  providers: [],
+  providers: [AuthGuardServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,9 @@
 import {AfterViewInit, Component, ViewChild, OnInit} from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { ApplyJobFormComponent } from './apply-job-form/apply-job-form.component';
 
 export interface UserData {
   id: string;
@@ -42,19 +44,20 @@ const NAMES: string[] = [
   'Thomas',
   'Elizabeth',
 ];
+
 @Component({
-  selector: 'app-applied-jobs',
-  templateUrl: './applied-jobs.component.html',
-  styleUrls: ['./applied-jobs.component.css']
+  selector: 'app-available-jobs',
+  templateUrl: './available-jobs.component.html',
+  styleUrls: ['./available-jobs.component.css']
 })
-export class AppliedJobsComponent implements OnInit {
+export class AvailableJobsComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'progress', 'fruit', 'apply'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     // Create 100 users
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
 
@@ -65,7 +68,11 @@ export class AppliedJobsComponent implements OnInit {
   }
 
   apply(id: string){
-    console.log(id);
+    const dialogRef = this.dialog.open(ApplyJobFormComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -81,7 +88,6 @@ export class AppliedJobsComponent implements OnInit {
     }
   }
 }
-
 function createNewUser(id: number): UserData {
   const name =
     NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
@@ -96,12 +102,3 @@ function createNewUser(id: number): UserData {
     fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
   };
 }
-
-
-
-
-/**
- * @title Data table with sorting, pagination, and filtering.
- */
-
-

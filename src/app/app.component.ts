@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthGuardServiceService } from './auth-guard-service.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fdbproject';
+  constructor(private authService:AuthGuardServiceService) { }
 }

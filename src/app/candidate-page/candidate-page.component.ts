@@ -4,6 +4,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { delay, filter } from 'rxjs/operators';
 import { NavigationEnd, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { LogoutComponent } from '../auth/logout/logout.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -15,7 +17,7 @@ export class CandidatePageComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
-  constructor(private observer: BreakpointObserver, private router: Router) {}
+  constructor(private observer: BreakpointObserver, private router: Router, private dialog: MatDialog) {}
   ngOnInit(): void {
   }
   home:boolean = true;
@@ -30,6 +32,17 @@ export class CandidatePageComponent implements OnInit {
     if(route === 'profile'){
       this.profile = true;
     }
+  }
+  logout(){
+    const dialogRef = this.dialog.open(LogoutComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+      localStorage.removeItem('token');
+      this.router.navigate(['/login']);
+      }
+    });
+    
   }
   ngAfterViewInit() {
     this.observer
