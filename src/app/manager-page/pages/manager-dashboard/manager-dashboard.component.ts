@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CreateJobComponent } from './create-job/create-job.component';
 
 @Component({
   selector: 'app-manager-dashboard',
@@ -28,6 +30,32 @@ export class ManagerDashboardComponent {
       ];
     })
   );
+  createJobs() {
+    const dialogRef = this.dialog.open(CreateJobComponent,{
+      width: '350px',
+    });
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  
+
+  constructor(private breakpointObserver: BreakpointObserver, public dialog: MatDialog) {}
 }
+// @Component({
+//   selector: 'CreateJob',
+//   templateUrl: 'createjob.component.html',
+// })
+// export class CreateJob {
+//   constructor(
+//     public dialogRef: MatDialogRef<CreateJob>,
+//     @Inject(MAT_DIALOG_DATA) public data: any,
+//   ) {
+
+//   }
+
+//   onNoClick(): void {
+//     this.dialogRef.close();
+//   }
+// }

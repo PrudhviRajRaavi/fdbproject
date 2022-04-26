@@ -26,6 +26,8 @@ import { ApplyJobFormComponent } from './candidate-page/pages/available-jobs/app
 import { LogoutComponent } from './auth/logout/logout.component';
 import { AuthGuardServiceService } from './auth-guard-service.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CandidateDetailsComponent } from './candidate-details/candidate-details.component';
+import { CreateJobComponent } from './manager-page/pages/manager-dashboard/create-job/create-job.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +42,9 @@ import { HttpClientModule } from '@angular/common/http';
     ManagerDashboardComponent,
     AvailableJobsComponent,
     ApplyJobFormComponent,
-    LogoutComponent
+    LogoutComponent,
+    CandidateDetailsComponent,
+    CreateJobComponent
   ],
   imports: [
     HttpClientModule,

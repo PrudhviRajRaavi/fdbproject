@@ -6,13 +6,14 @@ import { AuthenticationGuard } from './authentication.guard';
 import { CandidatePageComponent } from './candidate-page/candidate-page.component';
 import { AppliedJobsComponent } from './candidate-page/pages/applied-jobs/applied-jobs.component';
 import { ManagerPageComponent } from './manager-page/manager-page.component';
-
+import { CandidateDetailsComponent } from './candidate-details/candidate-details.component';
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path:'login', component: RegisterComponent},
   {path:'candidate', component: CandidatePageComponent, canActivate: [AuthenticationGuard]},
   {path:'applied-jobs', component: AppliedJobsComponent},
   {path:'manager', component:ManagerPageComponent, canActivate: [AuthenticationGuard], data: { expectedRole: 'manager'}},
+  {path:'candidate-details', component:CandidateDetailsComponent},
   {path:'**', redirectTo: 'login'}
 ];
 

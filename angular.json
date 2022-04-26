@@ -69,10 +69,13 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "fdbproject:build:production"
+              "browserTarget": "fdbproject:build:production",
+              "proxyConfig": "src/proxy.conf.json"
+              
             },
             "development": {
-              "browserTarget": "fdbproject:build:development"
+              "browserTarget": "fdbproject:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

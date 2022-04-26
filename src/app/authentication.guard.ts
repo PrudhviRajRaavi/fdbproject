@@ -21,8 +21,8 @@ export class AuthenticationGuard implements CanActivate {
       }
       if(this.auth.isAuthenticated()){
         if(expectedRole){
-          console.log("hi")
-          if(expectedRole !== 'match it with data stored from localStorage'){
+          // console.log(localStorage.getItem('userType')|| '{}').toString().toLowerCase())
+          if(expectedRole !== localStorage.getItem("userType")?.toLowerCase()){
             this.router.navigate(['/login']);
             return false;
           }

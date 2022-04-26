@@ -1,0 +1,37 @@
+
+<h2 mat-dialog-title>Create Jobs</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="firstFormGroup" (ngSubmit)="createJob()">
+        <div class="fillnamesform">
+            <mat-form-field appearance="fill">
+                <mat-label>Job title</mat-label>
+                <input matInput formControlName="title" placeholder="Ex. Software Engineer etc.," required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Employment Type</mat-label>
+                <input matInput formControlName="type" placeholder="Full-Time, Contract etc.," required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Job Description</mat-label>
+                <input matInput formControlName="desc" placeholder="Ex. About Job.," required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Jobcode Id</mat-label>
+                <input matInput formControlName="jobcode" placeholder="Ex. 1,2,3 etc.," required>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Effective Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="effDate" required>
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error>Effective Date is required</mat-error>
+            </mat-form-field>
+            <div style="display:flex; justify-content:space-evenly">
+                <button mat-raised-button  style="margin-right:10px">Cancel</button>
+                <button mat-raised-button  style="margin-left:10px" (click)="createJob()">CREATE</button>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+

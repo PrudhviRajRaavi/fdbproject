@@ -1,0 +1,8 @@
+# Send a get request to get available jobs
+@hostname=http://localhost:3000
+get {{hostname}}/candidate/availableJobs
+# add headers to the request
+# @hostname=http://localhost:8080/RP
+# get {{hostname}}/candidate/availableJobs/1001
+# header Accept: application/json
+# header candidateId: 10001

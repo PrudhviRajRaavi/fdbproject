@@ -6,6 +6,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { LogoutComponent } from '../auth/logout/logout.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthGuardServiceService } from '../auth-guard-service.service';
 
 
 @Component({
@@ -16,8 +17,12 @@ import { MatDialog } from '@angular/material/dialog';
 export class CandidatePageComponent implements OnInit {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
-
-  constructor(private observer: BreakpointObserver, private router: Router, private dialog: MatDialog) {}
+  email!:any;
+  userType!: any;
+  constructor(private observer: BreakpointObserver, private router: Router, private dialog: MatDialog, private authService:AuthGuardServiceService) {
+    this.userType = localStorage.getItem('userType');
+    this.email = localStorage.getItem('email');
+  }
   ngOnInit(): void {
   }
   home:boolean = true;
