@@ -39,16 +39,14 @@ export class AvailableJobsComponent implements OnInit {
    userData: any=[];
   ngOnInit() {
     this.appService.getAllJobs().subscribe(res => {
-      
+      console.log(res);
       this.tableData = res.responseObject.openPositions
-      this.userData = res.responseObject.appliedJobs;
+      this.userData = res.responseObject.openPositions;
       this.dataSource = new MatTableDataSource(this.userData);
       console.log(this.userData);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       // console.log(data);
-    }, err => {
-      console.log(err);
     }
     );}
 

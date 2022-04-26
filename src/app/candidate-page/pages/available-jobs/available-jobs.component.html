@@ -27,7 +27,7 @@
       <!-- Fruit Column -->
       <ng-container matColumnDef="employment_type">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Type </th>
-        <td mat-cell *matCellDef="let row"> {{row.employment_type}} </td>
+        <td mat-cell *matCellDef="let row"> {{row.employment_type | employmentPipe}} </td>
       </ng-container>
 
       <ng-container matColumnDef="effective_date">

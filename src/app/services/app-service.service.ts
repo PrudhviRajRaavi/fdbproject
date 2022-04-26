@@ -23,7 +23,7 @@ export class AppServiceService {
     // };
     // let options = new ({ headers: headers });
     // Return the observable
-    console.log(JSON.parse(localStorage.getItem('candidate')|| '{}').candidateId)
+    // console.log(JSON.parse(localStorage.getItem('candidate')|| '{}').candidateId)
     const headers= new HttpHeaders().set('candidateId',JSON.parse(localStorage.getItem('candidate')|| '{}').candidateId.toString());
     
     return this.http.get<any>(this.apiEndpoint + 'candidate/availableJobs', {'headers': headers});
